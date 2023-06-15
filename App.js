@@ -1,25 +1,28 @@
-import {Button, Text, View, StyleSheet} from 'react-native';
+import {Button, Text, View, StyleSheet, StatusBar} from 'react-native';
 import React from 'react';
-import ExStyles from './style';
+import HomeScreen from './src/Screens/HomeScreen';
+import {createStackNavigator} from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import LoginScreen from './src/Screens/LoginScreen';
 
-const hello = () => {
+const App = () => {
+  const Stack = createStackNavigator();
   return (
-    <View>
-      <Text style={styles.textBox}>Hello React Native</Text>
-      <Button
-        style={ExStyles.button}
-        title="Click me"
-        onPress={() => alert('Hello')}
-      />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 const styles = StyleSheet.create({
-  textBox: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: 'yellow',
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
-export default hello;
+export default App;
