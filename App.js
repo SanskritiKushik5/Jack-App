@@ -4,6 +4,7 @@ import HomeScreen from './src/Screens/HomeScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import LoginScreen from './src/Screens/LoginScreen';
+import {auth} from './firebase/firebase.config';
 
 const App = () => {
   const Stack = createStackNavigator();
